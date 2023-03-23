@@ -38,3 +38,20 @@ contentSelection.addEventListener("mouseout", (event) => {
     unboldText(event.target);
 });
 
+let scrollCounter = 0;
+const scrollCounterText = document.createElement("p");
+
+window.addEventListener("scroll", (event) => {
+    
+    const window = event.currentTarget;
+    const scrollcounter = window.scrollY;
+    if (scrollcounter )
+    {
+        scrollCounter+= 1;
+    }
+    scrollCounterText.textContent = `Scroll Counter: ${scrollCounter}`;
+    document.querySelector("header").appendChild(scrollCounterText);
+})
+
+
+
