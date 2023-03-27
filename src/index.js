@@ -38,8 +38,16 @@ contentSelection.addEventListener("mouseout", (event) => {
     unboldText(event.target);
 });
 
+const wheelDetection = document.createElement("p");
+window.addEventListener("wheel", (event) => {
+    const mouseWheel= event.textContent = "mouse wheel use deteted!";
+    document.querySelector("header").appendChild(wheelDetection);
+    wheelDetection.textContent = mouseWheel;
+})
+
 let scrollCounter = 0;
 const scrollCounterText = document.createElement("p");
+document.querySelector("header").appendChild(scrollCounterText);
 
 window.addEventListener("scroll", (event) => {
     
@@ -53,5 +61,41 @@ window.addEventListener("scroll", (event) => {
     document.querySelector("header").appendChild(scrollCounterText);
 })
 
+let introTest = document.querySelector(".home .intro h2");
+console.log(introTest);
+
+window.addEventListener("load", () => {
+   console.log("The page is fulled loaded"); 
+});
+
+const focusInputBox = document.createElement("input");
+focusInputBox.setAttribute("id", "form");
+focusInputBox.type = "text";
+focusInputBox.innerText = "Enter your name"
+document.querySelector(".nav-container").appendChild(focusInputBox);
+
+focusInputBox.addEventListener("focusin", (event) => {
+    event.target.style.background = "pink";
+  });
+  
+  focusInputBox.addEventListener("focusout", (event) => {
+    event.target.style.background = "";
+  });
+
+const btnFocus = document.createElement("button");
+btnFocus.innerText = "Enter Your Name";
+document.querySelector(".nav-container").appendChild(btnFocus);
+
+btnFocus.addEventListener("click", (event) => {
+    if (focusInputBox.value === ""){
+        event.preventDefault();
+        console.log("The Input Box is Empty!")
+    }
+    else {
+        let introH2Tag = document.querySelector(".intro h2");
+        introH2Tag.innerHTML = `Welcome To Fun Bus ${focusInputBox.value}!`;
+        introH2Tag.style.color = "red";
+    }
+})
 
 
