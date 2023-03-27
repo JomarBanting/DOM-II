@@ -12,6 +12,7 @@ document.addEventListener("keydown", (event) => {
         }
     })
 let introTest = document.querySelector(".home .intro h2");
+let headerTag = document.querySelector("header");
 console.log(introTest);
     
 window.addEventListener("load", () => {
@@ -60,7 +61,7 @@ if (contentSelection){
 const wheelDetection = document.createElement("p");
 window.addEventListener("wheel", (event) => {
     const mouseWheel= event.textContent = "mouse wheel use deteted!";
-    introH2Tag.appendChild(wheelDetection);
+    headerTag.appendChild(wheelDetection);
     wheelDetection.textContent = mouseWheel;
 })
 
@@ -68,7 +69,7 @@ let scrollCounter = 0;
 const scrollCounterText = document.createElement("p");
 if (scrollCounterText){
     if (introH2Tag){
-        introH2Tag.appendChild(scrollCounterText);
+        headerTag.appendChild(scrollCounterText);
     }
 
 window.addEventListener("scroll", (event) => {
@@ -80,7 +81,7 @@ window.addEventListener("scroll", (event) => {
         scrollCounter+= 1;
     }
     scrollCounterText.textContent = `Scroll Counter: ${scrollCounter}`;
-    introH2Tag.appendChild(scrollCounterText);
+    headerTag.appendChild(scrollCounterText);
 })
 }
 
